@@ -1,3 +1,5 @@
+//2nd attempt
+
 class Solution {
     func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
         var prevMap: [Int:Int] = [:]
