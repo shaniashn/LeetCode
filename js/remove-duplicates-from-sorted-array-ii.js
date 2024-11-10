@@ -1,51 +1,31 @@
 var removeDuplicates = function (nums) {
-  let j = 0;
-  let count = 1;
+  let r = 0;
+  let l = 0
 
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] == nums[i-1]) {
-      count += 1; 
-    } else if (nums[i] !== nums[i-1]){
-      count = 1
+  while(r < nums.length){
+    let count = 1;
+    while(nums[r] + 1 < nums.length && nums[r] == nums[r + 1]){
+      count++;
+      r++;
     }
-    
-    if(count <= 2){
-      nums[j] = nums[i];
-      j++;
+
+    for(let j = 0; j < Math.min(2, count); j++)  {
+      nums[l] = nums[r]
+      l++
     }
+    r++
   }
-  return j;
+
+  return l;
 };
 
-console.log(removeDuplicates([0,0,1,1,1,1,2,3,3]));
+console.log(removeDuplicates([1,1,1,2,2,3]));
 
 
-// [0,0,1,1,1,1,2,3,3]
+// [ 0 ,0,1,1,1,1,2,3,3]
 // [1,1,1,2,2,3]
 
-// let j = 0;
-//   let count = 1;
 
-//   for (let i = 0; i < nums.length; i++) {
-//     if (nums[i] == nums[i-1]) {
-//       count += 1; 
-//     } else if (nums[i] !== nums[i-1]){
-    //   count = 1
-    // }
-
-//     while (/* count > 2 && */ nums[i] !== nums[j]) {
-//       count = 1
-//       nums[j] = nums[i];
-      
-//     }
-
-//     if(count <= 2){
-//       j++;
-//     }
-//   }
-//   return nums;
-
-// ============
 // let j = 0;
 //   let count = 1;
 
